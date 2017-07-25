@@ -50,7 +50,7 @@ public class Tonkers {
 		pb.registerFullMaterial(new ItemStack(LudicrousItems.resource, 1, 4), 2, neutroniumName, new ItemStack(TinkerTools.toolShard, 1, neutroniumId), new ItemStack(TinkerTools.toolRod, 1, neutroniumId), neutroniumId);
 		
 		// register patterns
-		for (int m = 0; m < TinkerTools.patternOutputs.length; m++)
+		/*for (int m = 0; m < TinkerTools.patternOutputs.length; m++)
         {
             if (TinkerTools.patternOutputs[m] != null)
                 TConstructRegistry.addPartMapping(TinkerTools.woodPattern, m + 1, neutroniumId, new ItemStack(TinkerTools.patternOutputs[m], 1, neutroniumId));
@@ -59,11 +59,11 @@ public class Tonkers {
             TConstructRegistry.addPartMapping(TinkerWeaponry.woodPattern, m, neutroniumId, new ItemStack(TinkerWeaponry.patternOutputs[m], 1, neutroniumId));
 		}
 		TConstructRegistry.addPartMapping(TinkerTools.woodPattern, 25, neutroniumId, new ItemStack(TinkerWeaponry.arrowhead, 1, neutroniumId));
-		
+        */		
 		TonkersEvents events = new TonkersEvents();
 		MinecraftForge.EVENT_BUS.register(events);
         FMLCommonHandler.instance().bus().register(events);
-        
+
         // recipes
         ItemStack ingot = new ItemStack(LudicrousItems.resource, 1, 6);
         
