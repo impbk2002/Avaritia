@@ -97,8 +97,9 @@ public class Lucrum {
             try {
                 boolean kami = Class.forName("thaumic.tinkerer.common.core.handler.ConfigHandler").getField("enableKami").getBoolean(null);
                 if (kami) {
-                    Item kamiResource = Compat.getItem("ThaumicTinkerer", "kamiResource");
-                    Grinder.catalyst.getInput().add(new ItemStack(kamiResource, 1, 2));
+                    //because ichorium get unificated from gt
+                    Item kamiResource = Compat.getItem("gregtech", ":gt.metaitem.01");
+                    Grinder.catalyst.getInput().add(new ItemStack(kamiResource, 1, 11978));
                 }
             } catch (Exception e) {
                 Lumberjack.log(Level.INFO, e, "Avaritia couldn't find the last research it needs to unlock Ichor.");
