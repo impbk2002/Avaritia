@@ -28,13 +28,73 @@ version = "${config.avaritia.version}"
 group= "fox.spiteful.avaritia" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Avaritia"
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 minecraft {
-    version = "${config.forge.version}-${config.minecraft.version}"
+    version = "${config.minecraft.version}-${config.forge.version}-${config.minecraft.version}"
     runDir = "eclipse"
 }
 
+idea { module { inheritOutputDirs = true } }
+
+configurations {
+    provided
+    embedded
+    compile.extendsFrom provided, embedded
+}
+
+repositories {
+    maven {
+        name 'Forge maven'
+        url 'http://files.minecraftforge.net/maven/'
+    }
+    maven { //NEI, chicken core and lib
+        name = "Chickenbones maven"
+        url = "http://chickenbones.net/maven/"
+    }
+	maven {	// Forestry
+        name = "Player IC2 maven"
+        url = "http://maven.ic2.player.to/"
+    }
+	maven { // TConstruct
+        name 'DVS1 Maven FS'
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+	maven { // Baubles
+        name 'MC Mod Dev maven'
+        url 'https://maven.mcmoddev.com/'
+    }
+	maven { // CraftTweaker (aka MineTweaker3)
+        name 'jared maven'
+        url "http://maven.blamejared.com/"
+    }
+	ivy { //Thaumcraft, CoFHCore, BloodMagic and Witchery
+        name 'gtnh_download_source_stupid_underscore_typo'
+        artifactPattern "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]_[revision].[ext]"
+    }
+	ivy { // - instead of _
+        name 'gtnh_download_source'
+        artifactPattern "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]"
+    }
+}
+
 dependencies {
-    compile fileTree(dir: 'lib', include: '*.jar')
+    provided "codechicken:CodeChickenLib:${config.minecraft.version}-${config.codechickenlib.version}:dev"
+    provided "codechicken:CodeChickenCore:${config.minecraft.version}-${config.codechickencore.version}:dev"
+    provided "codechicken:NotEnoughItems:${config.minecraft.version}-${config.nei.version}:dev"
+    provided "MineTweaker3:MineTweaker3-MC1710-Main:${config.minecraft.version}-${config.minetweaker3.version}"
+	provided "net.sengir.forestry:forestry_${config.minecraft.version}:${config.forestry.version}:dev"
+	provided "tconstruct:TConstruct:${config.minecraft.version}-${config.tconstruct.version}:deobf"
+	provided "com.azanor:Baubles:${config.minecraft.version}-${config.baubles.version}"
+	//provided "com.azanor:Thaumcraft:${config.minecraft.version}-${config.thaumcraft.version}"
+    provided name: 'Thaumcraft', version: config.thaumcraft.version, ext: 'jar'
+	provided name: 'CoFHCore', version: config.cofhcore.version, ext: 'jar'
+	provided name: 'BloodMagic', version: config.bloodmagic.version, ext: 'jar'
+	provided name: 'witchery', version: config.witchery.version, ext: 'jar'
+	compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 processResources
