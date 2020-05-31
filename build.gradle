@@ -61,7 +61,7 @@ repositories {
     }
 	maven { // TConstruct
         name 'DVS1 Maven FS'
-        url 'http://dvs1.progwml6.com/files/maven'
+		url = "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/"
     }
 	maven { // Baubles
         name 'MC Mod Dev maven'
