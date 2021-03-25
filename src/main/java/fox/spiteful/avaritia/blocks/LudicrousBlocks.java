@@ -2,7 +2,6 @@ package fox.spiteful.avaritia.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.avaritia.Config;
-import fox.spiteful.avaritia.tile.TileEntityAutoDireCrafting;
 import fox.spiteful.avaritia.tile.TileEntityCompressor;
 import fox.spiteful.avaritia.tile.TileEntityDireCrafting;
 import fox.spiteful.avaritia.tile.TileEntityNeutron;
